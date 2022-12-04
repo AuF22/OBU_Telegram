@@ -1,19 +1,18 @@
 import random
-
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 
-def ikb_random(values: list, true_value: str) -> InlineKeyboardMarkup:
+def ikb_random(values: list, true_value: str, g=2) -> InlineKeyboardMarkup:
 
     def validation(verifiable: str) -> str:
         if verifiable == true_value:
-            return 'Верно'
+            return f'Верно{str(g)}'
         elif verifiable != true_value:
-            return 'Неверно'
+            return f'Неверно{str(g)}'
         else:
             return 'Ошибка'
 
-    def remove(val: list) -> list :
+    def remove(val: list) -> list:
         random_answer = random.choice(val)
         val.remove(random_answer)
         answer = [random_answer, validation(random_answer)]
@@ -25,6 +24,7 @@ def ikb_random(values: list, true_value: str) -> InlineKeyboardMarkup:
     g = remove(values)
 
     ikb_game = InlineKeyboardMarkup(row_width=2,
+
                                     inline_keyboard=[
                                             [
                                                 InlineKeyboardButton(text=x[0], callback_data=x[1]),

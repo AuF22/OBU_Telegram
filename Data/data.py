@@ -255,14 +255,14 @@ chart_of_accounting = [
 
 ]
 
-with open('../handlers/users/chart_of_accounts/chart_of_accounting.json', 'w') as file:
-    empty = {}
+#with open('../handlers/users/chart_of_accounts/chart_of_accounting.json', 'w') as file:
+ #   empty = {}
 
-    for value in chart_of_accounting:
-        value = value.split(':')
-        empty[value[0]] = value[1]
+  #  for value in chart_of_accounting:
+   #     value = value.split(':')
+    #    empty[value[0]] = value[1]
 
-    json.dump(empty, file, indent=2)
+    #json.dump(empty, file, indent=2)
 
 
 accounting_entries = [
@@ -301,7 +301,7 @@ accounting_entries = [
     'Приобретено сырье за наличный расчет\nД-т: 1620\n   К-т: 1110',
     'Погасили задолженность перед поставщиками\nД-т: 3190\n   К-т:1210',
     'Погашена задолженность по взносам на социальное страхование\nД-т: 3530\n   К-т: 1210',
-    'Компания получила убыток\nД-т: 5300\n   К-т:5999',
+    'Компания получила убыток\nД-т: 5300\n   К-т: 5999',
     'Оплатили страховку\nД-т: 1830\n   К-т: 1110',
     'Вперед оплатили за аренду\nД-т: 1820\n   К-т: 1120',
     'Приобрели товары в кредит\nД-т: 1610\n   К-т: 3320',

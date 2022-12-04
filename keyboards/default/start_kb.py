@@ -3,8 +3,7 @@ from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 start_kb = ReplyKeyboardMarkup(row_width=2,
                                keyboard=[
                                    [
-                                       KeyboardButton(text='🧮Счета'),
-                                       KeyboardButton(text='📝Проводки')
+                                       KeyboardButton(text='🎓Проверка знаний')
                                    ],
                                    [
                                        KeyboardButton(text='🎓Термины'),
