@@ -1,9 +1,9 @@
 import json
+import os
 
 
 def chart_all_values():
-    with open('C:\\Users\\mrase\\OneDrive\\Documents\\GitHub\\OBU_Telegram\\handlers\\users\\chart_of_accounts'
-              '\\chart_of_accounting.json', 'r') as file:
+    with open('handlers/users/chart_of_accounts/chart_of_accounting.json', 'r') as file:
         all_values = json.load(file)
     return all_values
 
