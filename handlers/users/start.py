@@ -5,18 +5,30 @@ from keyboards.inline.knowledge import ikb_game
 from fuzzywuzzy import fuzz
 from time import sleep
 from aiogram.utils.markdown import hlink
+from Data.database.db import DataBase
+data = DataBase()
 
 
 @dp.message_handler(commands=['start'])
 async def start(message: types.Message):
+    user_id = str(message.from_user.id)
+    name = str(message.from_user.first_name)
+    username = str(message.from_user.username)
+    user = await data.create_profile(user_id=user_id, name=name)
+    if user is not None:
+        from Data.config import admins_id
+        for admin in admins_id:
+            await dp.bot.send_message(chat_id=admin, text=f'{user}:\n{user_id=}\n{name=}\nusername=@{username}')
+
     text = f"""
 Вы находитесь в стартовом меню
 Для подробного ознакомления с ботом прошу ввести комманду : /help
     """
+
     await message.answer(text=text, reply_markup=start_kb)
 
 
-@dp.message_handler(commands=['start'])
+@dp.message_handler(commands=['menu'])
 async def start(message: types.Message):
     text = f"""
 Вы находитесь в Главном меню
