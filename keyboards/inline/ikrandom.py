@@ -3,7 +3,7 @@ from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 
 class Knowledge_keyboard:
-    def __init__(self, values: list, true_value: str, g=2):
+    def __init__(self, values: list, true_value: str, g: object = 2) -> None:
         self.ikb_game = None
         self.values = values
         self.true_value = true_value

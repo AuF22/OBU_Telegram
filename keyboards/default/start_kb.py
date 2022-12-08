@@ -6,7 +6,6 @@ start_kb = ReplyKeyboardMarkup(row_width=2,
                                        KeyboardButton(text='🎓Проверка знаний')
                                    ],
                                    [
-                                       KeyboardButton(text='🎓Термины'),
                                        KeyboardButton(text='ℹ️Информация')
                                    ]
                                ],

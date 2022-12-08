@@ -6,11 +6,21 @@ from fuzzywuzzy import fuzz
 from time import sleep
 from aiogram.utils.markdown import hlink
 
+
 @dp.message_handler(commands=['start'])
 async def start(message: types.Message):
     text = f"""
 Вы находитесь в стартовом меню
 Для подробного ознакомления с ботом прошу ввести комманду : /help
+    """
+    await message.answer(text=text, reply_markup=start_kb)
+
+
+@dp.message_handler(commands=['start'])
+async def start(message: types.Message):
+    text = f"""
+Вы находитесь в Главном меню
+Отточите свои знания бух учета, или же поищите интересуюшую вас проводку
     """
     await message.answer(text=text, reply_markup=start_kb)
 
@@ -52,7 +62,7 @@ async def look_for_accounting_entries(message: types.Message):
     answers = []
     for account_entry in accounting_entries:
         coincidence = fuzz.partial_ratio(message.text, str(account_entry))
-        if coincidence >= 75:
+        if coincidence >= 90:
             answers.append(account_entry)
         else:
             continue
@@ -61,7 +71,15 @@ async def look_for_accounting_entries(message: types.Message):
         text = f"К сожалению мы такой проводки не нашли:\n{message.text}"
         await message.answer(text=text)
     else:
-        await message.answer(text=f'Найдено всего {len(answers)} проводок')
+        wiring = None
+        if len(answers) == 1:
+            wiring = 'проводка'
+        elif len(answers) >= 5:
+            wiring = 'проводок'
+        else:
+            wiring = 'проводки'
+
+        await message.answer(text=f'Найдено всего {len(answers)} {wiring}')
         for answer in answers:
             await message.answer(text=answer)
             sleep(0.2)
