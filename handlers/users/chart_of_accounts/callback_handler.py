@@ -1,7 +1,8 @@
 from .common_knowledge import Common_CallBack_Handler
 from aiogram.types import CallbackQuery
 from loader import dp
-
+# Вызываем инилизацию класса
+# Call class initialization
 parent_class = Common_CallBack_Handler()
 
 
@@ -27,8 +28,3 @@ async def all_callback_handler(call: CallbackQuery):
         await call.answer(text=parent_class.last_true_answer, show_alert=True)
         parent_class.wiring()
         await call.message.edit_text(text=parent_class.wrong_text, reply_markup=parent_class.keyboard)
-
-
-
-
-

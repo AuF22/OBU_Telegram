@@ -3,6 +3,10 @@ from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 
 class Knowledge_keyboard:
+    """
+    Генерирует клавиатуру
+    Generates a keyboard
+    """
     def __init__(self, values: list, true_value: str, g: object = 2) -> None:
         self.ikb_game = None
         self.values = values

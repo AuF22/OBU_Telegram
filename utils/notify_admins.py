@@ -4,6 +4,11 @@ from Data.config import admins_id
 
 
 async def on_startup_notify(dp: Dispatcher):
+    """
+    Оповещалка для админов
+    Notify for admins
+    :param dp: from loader import dp
+    """
     for admin in admins_id:
         try:
             text = 'Бот был запущен'
