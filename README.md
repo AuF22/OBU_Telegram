@@ -91,7 +91,9 @@ admin_kb = ReplyKeyboardMarkup(row_width=2,
 Обрез списка ``keyboard[:-1]`` мы получаем из массива все элементы кроме последнего.
 В целом объекты ``start_kb`` и ``admin_kb`` называть списком неправильно. Они являются
 экземплярами класса ``ReplyKeyboardMurkup``, который в свою очередь возвращает словарь.
-И внутри этого словаря в ключе ``keyboard`` лежит наш список с кнопочками.
+И внутри этого словаря в ключе ``keyboard``[^1]  лежит наш список с кнопочками. 
+[^1]: На самом деле объект keyboard не является списком, он считается массивом или массив в массиве. 
+
 - ### Рассылка
 >handlers/admins/admin.py
 ```doctest
@@ -211,7 +213,9 @@ admin_kb = ReplyKeyboardMarkup(row_width=2,
 Trimming the list ``keyboard[:-1]`` we get all the elements from the array except the last one.
 In general, the objects ``start_kb`` and ``admin_kb`` are wrong to call a list. They are
 instances of the ``ReplyKeyboardMurkup`` class, which in turn returns a dictionary.
-And inside this dictionary in the ``keyboard`` key is our list of buttons.
+And inside this dictionary in the ``keyboard``[^2] key is our list of buttons.
+[^2]: Actually the keyboard object is not a list, it is considered an array or an array within an array.
+
 - ### Newsletter
 >handlers/admins/admin.py
 ```doctest
