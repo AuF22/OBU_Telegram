@@ -39,23 +39,27 @@ API_KEY = os.getenv('Your_API')
 
 ---
 ![Bot Commands](image/Commands.jpg)
-Первое что вы видите при запуске данного бота
+
+Первое что вы видите при запуске данного бота.
 
 ---
 - ### __User Panel__
 
 ---
 ![User panel](image/userPanel.jpg)
-Таким образом выглядит панель кнопок у обычного пользователя
+
+Таким образом выглядит панель кнопок у обычного пользователя.
+
 ---
 - ### __Admin Panel__
 
 ---
 ![Admin panel](image/adminPanel.jpg)
-Данным образом выглядит панель у админов бота
 
-Панель кнопок подготавливается в следующем файле
->keyboards/default/start_kb.py
+Данным образом выглядит панель у админов бота.
+
+>Панель кнопок подготавливается в следующем файле
+>>keyboards/default/start_kb.py
 ```doctest
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 
@@ -155,23 +159,27 @@ You need to create this file in the next path: ``Data/config/.env``
 
 ---
 ![Bot Commands](image/Commands.jpg)
-The first thing you see when you start this bot
+
+The first thing you see when you start this bot.
 
 ---
 - ### __User Panel__
 
 ---
 ![User panel](image/userPanel.jpg)
-This is how the button bar looks like for a regular user
+
+This is how the button bar looks like for a regular user.
+
 ---
 - ### __Admin Panel__
 
 ---
 ![Admin panel](image/adminPanel.jpg)
-This is how the panel for bot admins looks like
 
-The button bar is prepared in the following file
->keyboards/default/start_kb.py
+This is how the panel for bot admins looks like.
+
+>The button bar is prepared in the following file
+>>keyboards/default/start_kb.py
 ```doctest
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 
