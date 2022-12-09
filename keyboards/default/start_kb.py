@@ -1,14 +1,25 @@
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 
-start_kb = ReplyKeyboardMarkup(row_width=2,
-                               keyboard=[
-                                   [
-                                       KeyboardButton(text='🎓Проверка знаний')
-                                   ],
-                                   [
-                                       KeyboardButton(text='ℹ️Информация')
-                                   ]
-                               ],
-                               resize_keyboard=True)
+keyboard = [
+    [
+        KeyboardButton(text='🎓Проверка знаний')
+    ],
+    [
+        KeyboardButton(text='ℹ️Информация')
+    ],
+    [
+        KeyboardButton(text='Реклама 🎥'),
+        KeyboardButton(text='Статистика 📊')
+    ]
+]
 
-admin_kb = start_kb.row(KeyboardButton(text='Реклама 🎥'), KeyboardButton(text='Статистика 📊'))
+
+start_kb = ReplyKeyboardMarkup(row_width=2,
+                               keyboard=keyboard[:-1],
+                               resize_keyboard=True
+                               )
+
+admin_kb = ReplyKeyboardMarkup(row_width=2,
+                               keyboard=keyboard,
+                               resize_keyboard=True
+                               )

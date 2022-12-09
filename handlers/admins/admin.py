@@ -38,6 +38,7 @@ async def state_(call: CallbackQuery, state: FSMContext):
         id_list = await db.len_user_id()
         for user_id in id_list:
             await dp.bot.send_message(chat_id=user_id[0], text=text)
+            await state.finish()
 
 
 @dp.message_handler(state=State_Advertising.photo, content_types=types.ContentType.PHOTO)
@@ -55,6 +56,8 @@ async def photo_(message: types.Message, state: FSMContext):
         i += 1
 
     await message.answer(text=f'Сообщение доставлено:\n{i=}')
+
+    await state.finish()
 
 
 @dp.message_handler(AdminId(), text='Статистика 📊')
