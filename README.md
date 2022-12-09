@@ -216,7 +216,7 @@ instances of the ``ReplyKeyboardMurkup`` class, which in turn returns a dictiona
 And inside this dictionary in the ``keyboard``[^2] key is our list of buttons.
 [^2]: Actually the keyboard object is not a list, it is considered an array or an array within an array.
 
-- ### Newsletter
+- ### Mailloop
 >handlers/admins/admin.py
 ```doctest
 @dp.message_handler(state=State_Advertising.photo, content_types=types.ContentType.PHOTO)
