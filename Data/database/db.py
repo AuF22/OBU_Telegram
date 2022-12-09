@@ -1,6 +1,4 @@
 import sqlite3 as sq
-from aiogram import Dispatcher
-from Data.config import admins_id
 
 
 class DataBase:
@@ -18,3 +16,8 @@ class DataBase:
             return 'Новый пользователь'
         else:
             return None
+
+    async def len_user_id(self):
+        a = self.cursor.execute("""SELECT user_id FROM user""")
+        user_id_list = a.fetchall()
+        return user_id_list

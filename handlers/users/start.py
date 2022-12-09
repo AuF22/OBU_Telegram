@@ -1,6 +1,6 @@
 from loader import dp
 from aiogram import types
-from keyboards.default.start_kb import start_kb
+from keyboards.default.start_kb import start_kb, admin_kb
 from keyboards.inline.knowledge import ikb_game
 from fuzzywuzzy import fuzz
 from time import sleep
@@ -11,12 +11,13 @@ data = DataBase()
 
 @dp.message_handler(commands=['start'])
 async def start(message: types.Message):
+    from Data.config import admins_id
+
     user_id = str(message.from_user.id)
     name = str(message.from_user.first_name)
     username = str(message.from_user.username)
     user = await data.create_profile(user_id=user_id, name=name)
     if user is not None:
-        from Data.config import admins_id
         for admin in admins_id:
             await dp.bot.send_message(chat_id=admin, text=f'{user}:\n{user_id=}\n{name=}\nusername=@{username}')
 
@@ -25,14 +26,17 @@ async def start(message: types.Message):
 Для подробного ознакомления с ботом прошу ввести комманду : /help
     """
 
-    await message.answer(text=text, reply_markup=start_kb)
+    if user_id in admins_id:
+        await message.answer(text=text, reply_markup=admin_kb)
+    else:
+        await message.answer(text=text, reply_markup=start_kb)
 
 
 @dp.message_handler(commands=['menu'])
 async def start(message: types.Message):
     text = f"""
 Вы находитесь в Главном меню
-Отточите свои знания бух учета, или же поищите интересуюшую вас проводку
+Отточите свои знания бух учета, или же поищите интересующую вас проводку
     """
     await message.answer(text=text, reply_markup=start_kb)
 
