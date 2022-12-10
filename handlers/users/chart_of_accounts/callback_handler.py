@@ -1,7 +1,7 @@
 from .common_knowledge import Common_CallBack_Handler
 from aiogram.types import CallbackQuery
 from loader import dp
-# Вызываем инилизацию класса
+# Вызываем инициализация класса
 # Call class initialization
 parent_class = Common_CallBack_Handler()
 

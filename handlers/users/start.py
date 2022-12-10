@@ -74,18 +74,35 @@ async def info(message: types.Message):
 
 @dp.message_handler(content_types=['text'])
 async def look_for_accounting_entries(message: types.Message):
+    """
+    Как по мне эта самая основная функция бота, нахождение нужной информации из некоторого количества данных.
+    Тут проходит несколько стадий сравнения текста и анализа ее составляющих.
+    """
     from Data.data import accounting_entries
     answers = []
-    for account_entry in accounting_entries:
-        coincidence = fuzz.partial_ratio(message.text, str(account_entry))
-        if coincidence >= 90:
-            answers.append(account_entry)
-        else:
-            continue
+
+    msg = message.text
+    if 'дт' in msg.lower() or 'д-т' in msg.lower():
+        from .chart_of_accounts.game_config import wiring_all_values
+        import difflib
+        entry_dict = wiring_all_values()
+        for entry in entry_dict:
+            matcher = difflib.SequenceMatcher(None, msg.lower(), entry.lower()).ratio()
+            if matcher >= 0.86:
+                answers.append(f'{entry_dict.get(entry)}\n{entry}')
+
+    else:
+        for account_entry in accounting_entries:
+            coincidence = fuzz.partial_ratio(msg.lower(), str(account_entry).lower())
+            if coincidence >= 90:
+                answers.append(account_entry)
+            else:
+                continue
 
     if len(answers) == 0:
-        text = f"К сожалению мы такой проводки не нашли:\n{message.text}"
+        text = f"Проводка: {msg} не найдено\nПопробуйте перефразировать"
         await message.answer(text=text)
+
     else:
         wiring = None
         if len(answers) == 1:

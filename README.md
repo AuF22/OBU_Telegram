@@ -242,5 +242,6 @@ async def photo_(message: types.Message, state: FSMContext):
      # Exit Machine State
      await state.finish()
 ```
+
 I strongly recommend that you look at the Python File located in ``handlers/admins/admin.py``
 The so-called __Machine Condition.__
