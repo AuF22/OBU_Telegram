@@ -82,6 +82,8 @@ async def look_for_accounting_entries(message: types.Message):
     answers = []
 
     msg = message.text
+    # Ловит проводки в сообщении пользователя
+    # Catches accounting entries in the user's message
     if 'дт' in msg.lower() or 'д-т' in msg.lower():
         from .chart_of_accounts.game_config import wiring_all_values
         import difflib
@@ -104,7 +106,6 @@ async def look_for_accounting_entries(message: types.Message):
         await message.answer(text=text)
 
     else:
-        wiring = None
         if len(answers) == 1:
             wiring = 'проводка'
         elif len(answers) >= 5:

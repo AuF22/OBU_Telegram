@@ -3,13 +3,13 @@
 
 ---
 + ## RU
-Данного бота я сделал для получения большого опыта впрограммирование.
-Создавая данный проект я столкнулся с новыми старыми проблемами, но которые я смог 
-в полной мере решить. Тем кто понимает данный частично кодинг, надеюсь вы оцените мои
+Данного бота я сделал для получения большого опыта в программирование.
+Создавая данный проект я столкнулся с новыми и старыми проблемами, но которые я смог 
+в полной мере решить. Тем кто понимает частично кодинг, надеюсь вы оцените мои
 старания и соблюдения стандартам ``PEP8``.
 
 В дальнейшем я буду дальше развивать этот проект добавляя больше возможностей и улучшая 
-уже имеющиеся споособности бота.
+уже имеющиеся способности бота.
 
 Можете посмотреть как я писал примерно такого же бота раннее после 2-х месяцев обучения
 ``Python3``
@@ -126,16 +126,16 @@ async def photo_(message: types.Message, state: FSMContext):
 ---
 + ## ENG
 I made this bot to get a lot of experience in programming.
-Creating this project, I ran into new old problems, but which I was able to
-fully resolve. For those who understand this partial coding, I hope you appreciate my
-diligence and adherence to __PEP8__ standards
+When I was creating the project, I ran into new and old problems, but I decided to handle everything. 
+For those who understand this partial coding, I hope you appreciate my
+diligence and adherence to __PEP8__ standards.
 
 In the future, I will further develop this project by adding more features and improving
 existing bot abilities.
 
-You can see how I wrote about the same bot earlier after 2 months of training
+You can see how I wrote about the same bot earlier after two months of training
 ``Python3``
-Located in the ``old_bot`` folder. And compare with how I write now.
+Be located in the ``old_bot`` folder. And compare how I write now.
 
 ___
 ##### Small recommendation
@@ -154,7 +154,7 @@ API_KEY = os.getenv('Your_API')
 In this part, I advise you to create an environment variable file ``.env`` and save your data
 inside it for your safety, but you can also pass it directly
 
-You need to create this file in the next path: ``Data/config/.env``
+You need to create this file in the path: ``Data/config/.env``
 
 ---
 - ### __The Start__
@@ -170,7 +170,7 @@ The first thing you see when you start this bot.
 ---
 ![User panel](image/userPanel.jpg)
 
-This is how the button bar looks like for a regular user.
+It is what the button bar looks like for a user.
 
 ---
 - ### __Admin Panel__
@@ -178,9 +178,9 @@ This is how the button bar looks like for a regular user.
 ---
 ![Admin panel](image/adminPanel.jpg)
 
-This is how the panel for bot admins looks like.
+It is what the button bar looks like for an admin.
 
->The button bar is prepared in the following file
+>The button bar has been made in the following file
 >>keyboards/default/start_kb.py
 ```doctest
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
@@ -211,9 +211,9 @@ admin_kb = ReplyKeyboardMarkup(row_width=2,
                                 )
 ```
 Trimming the list ``keyboard[:-1]`` we get all the elements from the array except the last one.
-In general, the objects ``start_kb`` and ``admin_kb`` are wrong to call a list. They are
-instances of the ``ReplyKeyboardMurkup`` class, which in turn returns a dictionary.
-And inside this dictionary in the ``keyboard`` key is our list of buttons.
+Objects ``start_kb`` and ``admin_kb`` are wrong to call a list. They are
+instances of the ``ReplyKeyboardMurkup`` class, which returns a dictionary.
+And inside this dictionary, the ``keyboard`` key is our list of buttons.
 
 
 - ### Mailloop
