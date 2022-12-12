@@ -52,7 +52,7 @@ class Knowledge_keyboard:
                                              inline_keyboard=[
                                                  [
                                                      InlineKeyboardButton(text=a, callback_data=self.a[1]),
-                                                     InlineKeyboardButton(text=b,callback_data=self.b[1])
+                                                     InlineKeyboardButton(text=b, callback_data=self.b[1])
                                                  ],
                                                  [
                                                      InlineKeyboardButton(text=c, callback_data=self.c[1]),

@@ -77,6 +77,8 @@ async def look_for_accounting_entries(message: types.Message):
     """
     Как по мне эта самая основная функция бота, нахождение нужной информации из некоторого количества данных.
     Тут проходит несколько стадий сравнения текста и анализа ее составляющих.
+    As for me, this is the most basic function of the bot, finding the necessary information from a certain amount of data.
+    There are several stages of text comparison and analysis of its components.
     """
     from Data.data import accounting_entries
     answers = []
