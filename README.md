@@ -124,7 +124,7 @@ async def photo_(message: types.Message, state: FSMContext):
 Так называемая __Машино Состояние.__ 
 
 ---
-+ ## ENG
++ ## ENG 
 I made this bot to get a lot of experience in programming.
 When I was creating the project, I ran into new and old problems, but I decided to handle everything. 
 For those who understand this partial coding, I hope you appreciate my

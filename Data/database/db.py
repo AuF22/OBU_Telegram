@@ -1,3 +1,7 @@
+"""
+Файл с классом работающий с БД
+File with a class working with the database
+"""
 import sqlite3 as sq
 
 
@@ -17,7 +21,7 @@ class DataBase:
         else:
             return None
 
-    async def len_user_id(self):
+    async def len_user_id(self) -> list:
         a = self.cursor.execute("""SELECT user_id FROM user""")
         user_id_list = a.fetchall()
         return user_id_list
