@@ -1,4 +1,4 @@
-# Справочник бухгалтера
+# [Справочник бухгалтера](https://t.me/accountOBU_bot)
 ## __Telegram Bot by AuF__
 
 ---
@@ -123,6 +123,9 @@ async def photo_(message: types.Message, state: FSMContext):
 Настоятельно вам рекомендую просмотреть Python File находящийся в ``handlers/admins/admin.py``
 Так называемая __Машино Состояние.__ 
 
+###### Посмотреть на этого бота сможете нажав на > [OBU_bot](https://t.me/accountOBU_bot) <
+Или же перейдя по главному заголовку. 
+
 ---
 + ## ENG 
 I made this bot to get a lot of experience in programming.
@@ -245,3 +248,5 @@ async def photo_(message: types.Message, state: FSMContext):
 
 I strongly recommend that you look at the Python File located in ``handlers/admins/admin.py``
 The so-called __Machine Condition.__
+###### You can view this bot by clicking on > [OBU_bot](https://t.me/accountOBU_bot) <
+Or by clicking on the main heading.
