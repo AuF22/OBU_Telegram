@@ -1,3 +1,7 @@
+"""
+В дальнейшем буду переделывать данную часть бота, просто нынешний функционал для меня достаточен.
+In the future, I will redo this part of the bot, just the current functionality is sufficient for me.
+"""
 from loader import dp
 from aiogram import types
 from filters import AdminId
@@ -26,7 +30,6 @@ async def step_1(message: types.Message, state: FSMContext):
 @dp.callback_query_handler(state=State_Advertising.state_1)
 async def state_(call: CallbackQuery, state: FSMContext):
     answer = call.data
-
     if answer == 'yes':
         await call.message.answer(text='Пришлите фото')
         await State_Advertising.photo.set()
@@ -46,7 +49,6 @@ async def photo_(message: types.Message, state: FSMContext):
     photo_id = message.photo[-1].file_id
     await state.update_data(photo=photo_id)
     data = await state.get_data()
-    text = data.get('text')
     photo = data.get('photo')
     text = data.get('text')
     id_list = await db.len_user_id()
@@ -54,14 +56,13 @@ async def photo_(message: types.Message, state: FSMContext):
     for user_id in id_list:
         await dp.bot.send_photo(chat_id=user_id[0], photo=photo, caption=text)
         i += 1
-
     await message.answer(text=f'Сообщение доставлено:\n{i=}')
-
     await state.finish()
 
 
 @dp.message_handler(AdminId(), text='Статистика 📊')
 async def admin_advertising(message: types.Message):
+    """Sends a message with the count of users"""
     id_list = await db.len_user_id()
     text = f"В данный момент {len(id_list)} пользователей бота"
     await message.answer(text=text)
